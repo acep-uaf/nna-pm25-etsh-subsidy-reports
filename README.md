@@ -1,8 +1,15 @@
 # ETSH Subsidy Report Automation
-Provides a backup of the original subsidy report generation code and the program diagram. The PII directory is not included. This project is a showcase and will not run without the required PII files.
+This repository stores automation code for generating the monthly FNSB Electric Thermal Storage Heater (ETSH) participant subsidy reports. The following personally identifiable information (PII) is not included, but required:
+```
+subsidy-reports/
+└── pii/
+    ├── participant-info.csv
+    └── sensor-url.txt
+```
+With those two files, the script follows the following execution path to generate billing cycle subsidy calculations, purchase request form autofilling and appendix creation, and run a LaTeX subprocess to generate individualized reports for sending to participants.
 
 ![program diagram](diagram.png)
 
-This project makes use of many different files such as editing and creating CSV files, excel files, and latex files. It will also run each latex report through pdflatex and delete unnecessary files. Example report below:
+Example report:
 
 ![example report](report-template.png)
