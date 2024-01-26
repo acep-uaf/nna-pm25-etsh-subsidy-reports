@@ -1,0 +1,60 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=1.00in, right=1.00in, top=1.00in, bottom=1.00in]{geometry}
+\usepackage{ragged2e}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\begin{document}
+	\pagenumbering{gobble}
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{./acep-logo.png}
+	\end{center}
+\vspace*{1cm}
+	\begin{center}
+		\Large \textbf{ETSH Monthly Electricity Reimbursement Form}
+	\end{center}
+	\vspace*{1cm}
+	\begin{flushright}
+		\par Billing Cycle Start Date: startdate
+		\par Billing Cycle End Date: enddate
+	\end{flushright}
+	
+	\begin{flushleft}
+		\par name
+		\par address1
+		\par address2
+		\par email
+		\par phone
+	\end{flushleft}
+	
+	\begin{flushleft}
+		\par Current Residential Rate: \dotfill \$effectiverate/kWh
+		\par ETSH Rate: \dotfill \$targetrate/kWh
+		\par Residential Rate Minus ETSH Rate: \dotfill \$effectiverate/kWh - \$targetrate/kWh = \$difference/kWh
+		\vskip\baselineskip
+		\par Electricity Used by ETSH: \dotfill etshkwhusage kWh
+	\par Total Cost Before Reimbursement: \dotfill \$etshkwhunsubcost
+		\par Total Cost After Reimbursement: \dotfill \$etshkwhsubcost
+		\vskip\baselineskip
+		\par Reimbursement Credit: \dotfill \$accountcredit
+	\end{flushleft}
+	\vspace*{2cm}
+	\begin{center}
+		\Large \textbf{Your GVEA account has been credited for \$accountcredit}
+	\end{center}
+	\vfill
+	\begin{center}
+		\par \scriptsize \textbf{Alaska Center for Energy and Power | University of Alaska Fairbanks | 1764 Tanana Loop, ELIF Suite 404}
+		\par \scriptsize \textbf{P.O. Box 755910 | Fairbanks, Alaska 99775-5910 | Tel: (907) 474-5402 | Fax: (907) 474-5475}
+		
+		\includegraphics[scale=0.3]{./uaf-logo.jpg}
+		
+		\par \scriptsize \textbf{UAF is an AA/EO employer and educational institution and prohibits illegal discrimination against any individual: www.alaska.edu/nondiscrimination.}
+	\end{center}
+	
+\end{document}
