@@ -1,3 +1,5 @@
+![automation](sleeping-programmer.jpeg)
+
 # ETSH Subsidy Report Automation
 This repository stores automation code for generating the monthly FNSB Electric Thermal Storage Heater (ETSH) participant subsidy reports. The following personally identifiable information (PII) is not included, but required:
 ```
