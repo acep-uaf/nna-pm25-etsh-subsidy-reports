@@ -11,7 +11,7 @@ nna-fnsb-etsh-subsidy-reports/
     ├── participant-info.csv
     └── sensor-url.txt
 ```
-With those two files, the script follows the following execution path to generate billing cycle subsidy calculations, purchase request form autofilling and appendix creation, and run a LaTeX subprocess to generate individualized reports for sending to participants. I strongly recommend building a virtual envrionment based on the package requriments in `requirements.txt` (e.g., `$ (venv) pip install -r requirements.txt`)
+With those two files, the script follows the following execution path to generate billing cycle subsidy calculations, purchase request form autofilling and appendix creation, and run a LaTeX subprocess to generate individualized reports for sending to participants. I strongly recommend building a virtual envrionment based on the package requriments in `requirements.txt` (e.g., `$ (venv) pip install -r requirements.txt`). Must have a local LaTeX distribution to call `pdflatex filename.tex`.
 
 ![program diagram](diagram.png)
 # Usage
