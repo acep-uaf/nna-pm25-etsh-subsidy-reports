@@ -60,11 +60,12 @@ if not input("Would you like to continue? (y/n): ").lower().strip()[:1] == "y":
 ### Section 0: Directory Validation
 ##########################################################################################
 try:
-    os.mkdir('./pii/reports/')
+    os.makedirs(os.path.join(os.curdir, 'pii', 'reports'))
+    print("Sensor data directory has been created at", sensor_dir)
 except FileExistsError:
     pass
 try:
-    os.mkdir('./pii/sensor-data/')
+    os.makedirs(os.path.join(os.curdir, 'pii', 'sensor-data'))
 except FileExistsError:
     pass
 
@@ -72,14 +73,8 @@ except FileExistsError:
 ### Section 1: Sensor Data Pull and Store
 ##########################################################################################
 
-path = os.path.curdir # current working directory
-sensor_dir = os.path.join(path, 'pii', 'sensor-data/') # sensor data directory
-sensor_url = os.path.join(path, 'pii','sensor-url.txt')
-
-try:
-    os.mkdir(sensor_dir)
-    print("Sensor data directory has been created at", sensor_dir)
-except FileExistsError: pass
+sensor_dir = os.path.join(os.curdir, 'pii', 'sensor-data') # sensor data directory
+sensor_url = os.path.join(os.curdir, 'pii','sensor-url.txt') # sensor url to download data
 
 with open(sensor_url) as pii_sensor: call_me = pii_sensor.readlines() # extract BMON sensor URL
 
@@ -88,7 +83,7 @@ df = pd.read_excel(call_me[0]) # load sensor data into memory
 
 # Cleaning the sensor data
 new_cols = df.columns.tolist() # store current columns in list
-for i in range(len(new_cols)): new_cols[i] = new_cols[i].replace(", Watts","") # remove extra text
+for i in range(len(new_cols)): new_cols[i] = new_cols[i].replace(", Watts","") # remove extra text in column headings
 
 new_cols[0] = new_cols[0].replace("Timestamp","datetime")
 col_rename = {i:j for i,j in zip(df.columns.tolist(),new_cols)} # create dictionary between columns
@@ -190,7 +185,7 @@ print('Saved purchase request to', pr_wb_path)
 ##########################################################################################
 
 # Create tex files in a temporary folder
-latex_template_path = './misc/main.tex'
+latex_template_path = os.path.join(os.curdir,'misc','main.tex')
 difference = args.effectiverate - args.targetrate
 
 try:
@@ -225,7 +220,6 @@ for i in range(len(pii)):
 # Run all tex files through pdflatex
 run_me = os.listdir(individual_reports_path)
 shutil.copytree('./misc/figures/', individual_reports_path, dirs_exist_ok = True)
-
 original_dir = os.getcwd()
 os.chdir(individual_reports_path)
 for f in run_me:
@@ -242,3 +236,5 @@ for f in updated_dir:
         os.remove(individual_reports_path + f)
     else:
         pass
+
+exit()
